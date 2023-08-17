@@ -1,0 +1,43 @@
+<h4>Agregar Personaje</h4>
+<form class="row" (ngSubmit)="emitCharacter()">
+  
+  <!-- Una forma de enlazar los atributos con los campos de mi formulario
+      es hacer uso del Two Way Data Binding -> [()]
+
+        recordar:
+          [] -> esto es para asignar un atributo
+          () -> esto es para manejar un evento de la página
+
+      entonces el TWDB significa que estamos asignando un atributo y a la vez lanzando un evento
+
+      Ahora bien para enlazarlos con campos declarados en mi clase AddCharacter
+
+      debo hacer uso del FormsModule para tener la propiedad ngModel y luego igualarlo al campo que deseo
+
+      sintáxis:
+
+      [(ngModel)] = "{campo que deseo recibir el valor}"
+
+  -->
+
+  <input type="text" 
+        name="name"
+        [(ngModel)]="characterNew.name" 
+        class="form-control mb-2" 
+        placeholder="Nombre" />
+
+  <input type="number" 
+        name="power"
+        [(ngModel)]="characterNew.power" 
+        class="form-control mb-2"
+         placeholder="Poder" />
+
+  <!-- Normalmente se tiene el evento click ponerlo en el button
+      pero si estamos dentro de la etiqueta <form>, se debería 
+        ponerlo ahí adentro y en vez de poner (click)
+        ahora debemos ponerlo como: (ngSubmit)
+  -->
+  <button  type="submit" class="btn btn-primary" >Agregar</button>
+
+
+</form>
